@@ -84,6 +84,9 @@ root.render(parent);
 *
 */
 
+import React from "react";
+import ReactDOM from 'react-dom/client';
+
 const parent = React.createElement(
     "div",
     { id: "parent" },
@@ -95,10 +98,10 @@ const parent = React.createElement(
     ),
     React.createElement(
         "div",
-        { id: "child2" },
-        [React.createElement("h1", {}, "This is the h1 sibling"),
-        React.createElement("h2", {}, "This is the h2 sibling")]
-    )
+        { id: "child2" }, [
+        React.createElement("h1", {}, "This is the h1 sibling"),
+        React.createElement("h2", {}, "This is the h2 sibling")
+    ])
     ]
 );
 const root = ReactDOM.createRoot(document.getElementById("root"));
