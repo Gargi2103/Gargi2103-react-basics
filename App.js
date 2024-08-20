@@ -1,108 +1,38 @@
-/* 
-* Case 1:
-* In case where only one element needs to be added within the HTML
-* In this case its <h1 id="heading"></h1>
-*
-*/
-
-/* const heading = React.createElement("h1", { id: "heading" }, "Hello World from React !!");
-   const root = ReactDOM.createRoot(document.getElementById("root")); 
-   root.render(heading);
-*/
-/* 
-* Case 2:
-* In case where more than one elements needed to be added within the HTML
-* In this case its 
-<div id="parent">
-    <div id="child">
-        <h1>This is from the div</h1>
-    </div>
-</div>
-*
-*/
-
-/* const parent = React.createElement(
-    "div",
-    { id: "parent" },
-    React.createElement(
-        "div",
-        { id: "child" },
-        React.createElement(
-            "h1",
-            {},
-            "This is from the div"
-        )
-    )
-);
-const root = ReactDOM.createRoot(document.getElementById("root"));
-root.render(parent);
- */
-
-/* 
-* Case 3:
-* In case where more than one elements needed to be added within the HTML along with siblings of h1
-* In this case its 
-<div id="parent">
-    <div id="child">
-        <h1>This is the h1 sibling</h1>
-        <h2>This is the h2 sibling</h2>
-    </div>
-</div>
-*
-*/
-
-/* const parent = React.createElement(
-    "div",
-    { id: "parent" },
-    React.createElement(
-        "div",
-        { id: "child" },
-        [React.createElement("h1", {}, "This is the h1 sibling"),
-        React.createElement("h2", {}, "This is the h2 sibling")]
-    )
-);
-const root = ReactDOM.createRoot(document.getElementById("root"));
-root.render(parent); 
-*/
-
-/* 
-* Case 4:
-* In case where more than one elements needed to be added within the HTML along with siblings of h1
-* In this case its 
-<div id="parent">
-    <div id="child">
-        <h1>This is the h1 sibling</h1>
-        <h2>This is the h2 sibling</h2>
-    </div>
-    <div id="child2">
-        <h1>This is the h1 sibling</h1>
-        <h2>This is the h2 sibling</h2>
-    </div>
-</div>
-*
-*However the below code in unreadable, so henceforth we will be writing JSX to have HTML elements.
-*
-*/
-
 import React from "react";
 import ReactDOM from 'react-dom/client';
 
-const parent = React.createElement(
-    "div",
-    { id: "parent" },
-    [React.createElement(
-        "div",
-        { id: "child" },
-        [React.createElement("h1", {}, "This is the h1 sibling"),
-        React.createElement("h2", {}, "This is the h2 sibling")]
-    ),
-    React.createElement(
-        "div",
-        { id: "child2" }, [
-        React.createElement("h1", {}, "This is the h1 sibling"),
-        React.createElement("h2", {}, "This is the h2 sibling")
-    ])
-    ]
+// React Element 
+const jsxHeading = (
+    <h1 id="heading" tabIndex="5">
+        Namaste React from JSX
+    </h1>
 );
+
+
+const number = 1000;
+//React Functional Component
+
+const Title = () => (
+    <h1>Hello this is a React World !!</h1>
+);
+
+const element = (
+    <div>
+        <Title />
+    </div>
+);
+
+const HeadingComponent = () => (
+    <div id="container">
+        {jsxHeading}
+        {element}
+        {Title()}
+        <h1 className="heading">Namaste React from Functional Component!!</h1>
+        <h2>{number}</h2>
+        <h3>{number + 100}</h3>
+    </div>
+);
+
+
 const root = ReactDOM.createRoot(document.getElementById("root"));
-root.render(parent); 
+root.render(<HeadingComponent />);
