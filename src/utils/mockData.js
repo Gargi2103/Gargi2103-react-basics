@@ -1,31 +1,3 @@
-import React from "react";
-import ReactDOM from 'react-dom/client';
-//import restaurantData from '/Data';
-
-/*
-* Header
-*   Logo
-*   Nav Item
-*       Home
-*       About Us
-*       Cart
-* Body
-*   Search
-*   Restaurant Container
-*       Restaurant Card
-*           Image
-*           Name of Restaurant, star rating, cuisine, delivery time
-* Footer
-*   Copyright
-*   Links
-*   Address
-*   Contact
-*/
-
-const styleCard = {
-    backgroundColor: "#f0f0f0"
-}
-
 const restaurantList = [
     {
         "info": {
@@ -41,7 +13,7 @@ const restaurantList = [
                 "Tibetan",
                 "Desserts"
             ],
-            "avgRating": 4.2,
+            "avgRating": 3.8,
             "parentId": "61955",
             "avgRatingString": "4.2",
             "totalRatingsString": "1K+",
@@ -255,7 +227,7 @@ const restaurantList = [
                 "Desserts",
                 "Beverages"
             ],
-            "avgRating": 4.1,
+            "avgRating": 3.9,
             "parentId": "301197",
             "avgRatingString": "4.1",
             "totalRatingsString": "1K+",
@@ -855,73 +827,5 @@ const restaurantList = [
         "widgetId": "collectionV5RestaurantListWidget_SimRestoRelevance_food_seo"
     }
 ];
-const Header = () => {
-    return (
-        <div className="header">
-            <div className="logo-container">
-                <img className="logo" src="https://image.freepik.com/free-vector/food-app-icon-logo_29069-50.jpg" />
-            </div>
-            <div className="nav-items">
-                <ul>
-                    <li>Home</li>
-                    <li>About Us</li>
-                    <li>Contact Us</li>
-                    <li>Cart</li>
-                </ul>
-            </div>
-        </div>
-    )
-}
 
-const RestaurantCard = (props) => {
-    console.log("props", props);
-    const { resData } = props;
-    console.log("resData", resData);
-    const {cloudinaryImageId, name, cuisines, avgRating, sla, costForTwo } = resData?.info;
-    return (
-        <div className="restaurant-card" style={styleCard}>
-            <img altText="restaurantImage" src={"https://media-assets.swiggy.com/swiggy/image/upload/fl_lossy,f_auto,q_auto,w_660/" + cloudinaryImageId} />
-            <h3>{name}</h3>
-            <h4>{cuisines}</h4>
-            <h4>{avgRating}</h4>
-            <h4>{sla.slaString}</h4>
-            <h4>{costForTwo}</h4>
-        </div>
-    )
-}
-
-const Body = () => {
-    return (
-        <div className="body">
-            <div className="search">
-                Search
-            </div>
-            <div className="restaurant-container">
-                {/* // here for array restaurantList mapping each restaurant with unique restaurantCard where attribute is passed as restaurant for each restaurant in the restaurantList */}
-                {/* Its a good practice to pass a unique key for each restaurant. Hence we are using the attribute key in the RestaurantCard and passing the id from the restaurantList here */}
-                {/* Many developers say use also have the unique key as index as below, 
-                * but React official documentation doesnot recommend using index for keys as sequencing might change 
-                * In cases where uniqueid is not there, then we can use it but not recommended, so as backend developers to sent unique ids.
-                * Not using key = not acceptable
-                * Best thing is to use uniqueId
-                * If no uniqueID = then have to use index --> but not recommended
-                */}
-                {/* {restaurantList.map((restaurant, index) => <RestaurantCard key={index} resData={restaurant} />)} */}
-                {restaurantList.map((restaurant) => <RestaurantCard key={restaurant.info.id} resData={restaurant} />)} 
-            </div>
-        </div>
-    )
-}
-const AppLayout = () => {
-    return (
-        <div className="app">
-            <Header />
-            <Body />
-        </div>
-    )
-    
-};
-
-
-const root = ReactDOM.createRoot(document.getElementById("root"));
-root.render(<AppLayout />);
+export default restaurantList;

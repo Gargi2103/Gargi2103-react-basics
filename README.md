@@ -17,3 +17,30 @@
 - can provide hosting in HTTPS
 - Tree shaking - remove unused code
 - different dev and prod bundles - because prod takes little more time to build
+
+# Food Ordering App
+
+- Header
+- Logo
+- Nav Item
+-       Home
+-       About Us
+-       Cart
+- Body
+- Search
+- Restaurant Container
+-       Restaurant Card
+-           Image
+-           Name of Restaurant, star rating, cuisine, delivery time
+- Footer
+- Copyright
+- Links
+- Address
+- Contact
+
+# React Hooks
+
+- Normal JS utility functions with superpowers. These functions are written within react which we installed from npm.
+- 2 very important react hooks - useState() and useEffect()
+- useState() - helps in generating super powerful react state variables
+- useEffect() -
