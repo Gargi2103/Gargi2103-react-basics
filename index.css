@@ -97,3 +97,13 @@
     margin: 10 0 10 10;
     padding: 10px 16px;
 }
+
+.listHeading {
+    font-weight: bold;
+    color:#0c6ed2;
+}
+
+.list {
+    font-weight: 100;
+    color: black;
+}

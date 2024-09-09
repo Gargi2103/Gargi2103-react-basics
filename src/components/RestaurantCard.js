@@ -1,4 +1,5 @@
 import { CDN_URL } from "../utils/constants"; //named import for a named export
+import { Link } from "react-router-dom";
 const styleCard = {
     backgroundColor: "#f0f0f0"
 };
@@ -16,6 +17,7 @@ const RestaurantCard = (props) => {
             <h4>{avgRating}</h4>
             <h4>{sla.slaString}</h4>
             <h4>{costForTwo}</h4>
+            <Link to="/restaurants/:resId"></Link>
         </div>
     )
 };
